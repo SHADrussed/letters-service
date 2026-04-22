@@ -1,0 +1,14 @@
+.formTitle {
+  font-size: 64px;
+  color: white;
+}
+.titleContainer {
+  height: 129px;
+  background-color: rgba(110, 190, 131, 1);
+  padding: 45px 0px 0px 41px;
+}
+.section {
+  margin: 0px;
+  width: 100%;
+  background: #f3f4f6; /* твой цвет */
+}
