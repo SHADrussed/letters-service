@@ -45,10 +45,10 @@ export function useFeedbackForm() {
       setStatus("success");
       setForm({ name: "", contacts: "", message: "" });
     } catch (err) {
+      console.error(err);
+
       setStatus("error");
       setError(err.message);
-    } finally {
-      setStatus("success");
     }
   };
 

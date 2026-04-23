@@ -3,9 +3,10 @@
   color: white;
 }
 .titleContainer {
+  display: flex;
   height: 129px;
-  background-color: rgba(110, 190, 131, 1);
-  padding: 45px 0px 0px 41px;
+  background-color: rgba(23, 151, 57, 1);
+  padding: 45px 41px 0px;
 }
 .section {
   margin: 0px;

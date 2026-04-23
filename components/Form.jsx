@@ -7,7 +7,7 @@ export default function Form() {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <h3 className={styles.inputTitle}>Представьтесь(контакты)</h3>
-      <input
+      <textarea
         className={styles.input}
         name="name"
         value={form.name}

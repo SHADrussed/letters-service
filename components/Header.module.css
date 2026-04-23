@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  max-height: 600px;
+  min-height: 672px;
   justify-content: space-between;
 }
 .textBlock {
