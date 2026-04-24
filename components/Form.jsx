@@ -8,6 +8,7 @@ export default function Form() {
     <form className={styles.form} onSubmit={handleSubmit}>
       <h3 className={styles.inputTitle}>Представьтесь(контакты)</h3>
       <textarea
+        disabled={status === "success"}
         className={styles.input}
         name="name"
         value={form.name}
@@ -17,6 +18,7 @@ export default function Form() {
 
       <h3 className={styles.inputTitle}>Ваше сообщение в редакцию</h3>
       <textarea
+        disabled={status === "success"}
         className={styles.input}
         name="contacts"
         value={form.contacts}
@@ -25,6 +27,7 @@ export default function Form() {
       />
 
       <textarea
+        disabled={status === "success"}
         className={styles.input}
         name="message"
         value={form.message}
@@ -32,12 +35,19 @@ export default function Form() {
         placeholder="Ваше сообщение в редакцию"
       />
 
-      <button className={styles.button} disabled={status === "loading"}>
-        {status === "loading" ? "Отправка..." : "Отправить"}
-      </button>
+      <div className={styles.resultBox}>
+        <button className={styles.button} disabled={status === "loading"}>
+          {status === "loading" && "Отправка..."}
+          {status === "success" && "Отправлено ✅"}
+          {status === "idle" && "Отправить"}
+          {status === "error" && "Повторить"}
+        </button>
 
-      {status === "success" && <p>Отправлено ✅</p>}
-      {status === "error" && <p>{error}</p>}
+        {status === "success" && (
+          <p className={styles.result}>Спасибо! Мы получили ваш отзыв.</p>
+        )}
+        {status === "error" && <p className={styles.result}>{error}</p>}
+      </div>
     </form>
   );
 }

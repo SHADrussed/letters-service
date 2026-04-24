@@ -16,15 +16,24 @@
 }
 
 .button {
-  margin-top: 32px;
   height: 101px;
   min-width: 320px;
   background: black;
   color: white;
-  margin-bottom: 32px;
 }
 
 .inputTitle {
   font-size: 32px;
   font-weight: 400;
+}
+.result {
+  font-size: 32px;
+  font-weight: 400;
+}
+.resultBox {
+  margin-bottom: 32px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
