@@ -21,8 +21,8 @@ export function useFeedbackForm() {
   };
 
   const validate = () => {
-    if (!form.name.trim()) return "Имя обязательно";
-    if (!form.message.trim()) return "Сообщение обязательно";
+    if (!form.name.trim() || !form.contacts.trim() || !form.message.trim())
+      return "Введите все поля :)";
     return null;
   };
 
@@ -37,7 +37,6 @@ export function useFeedbackForm() {
     }
 
     setStatus("loading");
-    setStatus(null);
 
     try {
       await sendFeedback(form);
@@ -45,10 +44,10 @@ export function useFeedbackForm() {
       setStatus("success");
       setForm({ name: "", contacts: "", message: "" });
     } catch (err) {
+      console.error(err);
+
       setStatus("error");
       setError(err.message);
-    } finally {
-      setStatus("success");
     }
   };
 

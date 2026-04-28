@@ -1,5 +1,12 @@
+import { API_URL, USE_MOCK } from "../src/config/api";
+import { mockSendFeedback } from "./mocker";
+
 export async function sendFeedback(data) {
-  const res = await fetch("http://192.168.10.64:8000/send-letter", {
+  if (USE_MOCK) {
+    return mockSendFeedback(data);
+  }
+
+  const res = await fetch(`${API_URL}/send-letter`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
