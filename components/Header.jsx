@@ -1,11 +1,10 @@
 import styles from "./Header.module.css";
-import img from "../public/image.png";
 
 export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.textBlock}>
-        <h1 className={styles.title}>Привет от редакции</h1>
+        <h1 className={styles.title}>Письма в редакцию</h1>
         <p className={styles.description}>
           Напоследок спасибо всем, кто дочитал или долистал до этой страницы.
           Будем верить, что мы делаем нужное дело и неплохо.
@@ -32,7 +31,7 @@ export default function Header() {
           журнала «За науку»
         </p>
       </div>
-      <img src={img} alt="description" />
+      {/* <img src={img} alt="description" /> */}
     </header>
   );
 }
