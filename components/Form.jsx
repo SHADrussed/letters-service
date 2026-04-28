@@ -1,50 +1,58 @@
 import { useFeedbackForm } from "../hooks/useFeedbackForm";
 import styles from "./Form.module.css";
+import draftsIcon from "../src/assets/drafts.svg";
+import contactIcon from "../src/assets/account_circle.svg";
 
 export default function Form() {
   const { form, status, error, handleChange, handleSubmit } = useFeedbackForm();
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <h3 className={styles.inputTitle}>Представьтесь(контакты)</h3>
-      <textarea
-        disabled={status === "success"}
-        className={styles.input}
-        name="name"
-        value={form.name}
-        onChange={handleChange}
-        placeholder="Представьтесь"
-      />
+      <div className={styles.inputBlock}>
+        <img className={styles.icon} src={contactIcon} alt="Иконка контактов" />
+        <textarea
+          disabled={status === "success"}
+          className={styles.input}
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          placeholder="представьтесь"
+        />
+      </div>
 
-      <h3 className={styles.inputTitle}>Ваше сообщение в редакцию</h3>
-      <textarea
-        disabled={status === "success"}
-        className={styles.input}
-        name="contacts"
-        value={form.contacts}
-        onChange={handleChange}
-        placeholder="Контакты (опционально)"
-      />
+      <div className={styles.inputBlock}>
+        <img className={styles.icon} src={draftsIcon} alt="Иконка сообщения" />
+        <textarea
+          disabled={status === "success"}
+          className={styles.input}
+          name="contacts"
+          value={form.contacts}
+          onChange={handleChange}
+          placeholder="контакты"
+        />
+      </div>
 
-      <textarea
-        disabled={status === "success"}
-        className={styles.input}
-        name="message"
-        value={form.message}
-        onChange={handleChange}
-        placeholder="Ваше сообщение в редакцию"
-      />
+      <div className={styles.letterSubmitWrapper}>
+        <h3 className={styles.inputTitle}>ваше письмо</h3>
+        <textarea
+          disabled={status === "success"}
+          className={styles.message}
+          name="message"
+          value={form.message}
+          onChange={handleChange}
+        />
+      </div>
 
       <div className={styles.resultBox}>
         <button className={styles.button} disabled={status === "loading"}>
-          {status === "loading" && "Отправка..."}
-          {status === "success" && "Отправлено ✅"}
-          {status === "idle" && "Отправить"}
-          {status === "error" && "Повторить"}
+          {status === "loading" && "отправка..."}
+          {status === "success" && "отправлено ✅"}
+          {status === "idle" && "отправить в редакцию"}
+          {status === "error" && "повторить"}
         </button>
 
         {status === "success" && (
-          <p className={styles.result}>Спасибо! Мы получили ваш отзыв.</p>
+          <p className={styles.result}>спасибо! мы получили ваш отзыв.</p>
         )}
         {status === "error" && <p className={styles.result}>{error}</p>}
       </div>
