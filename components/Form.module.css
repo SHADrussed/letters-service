@@ -85,6 +85,10 @@ textarea {
 .button:hover {
   background-color: #0bb13e;
 }
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
 .inputTitle {
   color: var(--text);
