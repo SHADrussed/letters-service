@@ -15,6 +15,7 @@ export async function sendFeedback(data) {
   });
 
   if (!res.ok) {
+    console.log("API URL:", import.meta.env.VITE_API_URL);
     throw new Error("Ошибка отправки");
   }
 
